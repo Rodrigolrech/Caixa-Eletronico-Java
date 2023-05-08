@@ -13,14 +13,12 @@ class BancoTest {
   void gerarNumeroNovaContaTest() {
     Banco banco = new Banco();
     assertEquals(10, banco.gerarNumeroNovaConta().length());
-    fail("Não implementado");
   }
 
   @Test
   @DisplayName("2 - Testa o método adicionar pessoa cliente retorna o objeto pessoa cliente.")
   void adicionarPessoaClienteTest() {
     fail("Não implementado");
-
   }
 
   @Test
