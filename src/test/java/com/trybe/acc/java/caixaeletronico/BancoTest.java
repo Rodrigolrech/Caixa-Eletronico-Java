@@ -19,15 +19,22 @@ class BancoTest {
   @DisplayName("2 - Testa o método adicionar pessoa cliente retorna o objeto pessoa cliente.")
   void adicionarPessoaClienteTest() {
     Banco banco = new Banco();
-    PessoaCliente pessoaCliente = new PessoaCliente();
-    assertEquals(PessoaCliente, banco.adicionarPessoaCliente(pessoaCliente).class());
+    String nome = "teste";
+    String cpf = "123456789121";
+    String senha = "123456";
+    assertEquals(PessoaCliente, banco.adicionarPessoaCliente(nome,cpf,senha).class());
     assertEquals(1, banco.pessoasClientes.length());
+    String nome2 = "teste1";
+    String cpf2 = "123456789122";
+    String senha2 = "123422";
+    banco.adicionarPessoaCliente(nome2,cpf2,senha2);
+    assertEquals(2, banco.pessoasClientes.length());
   }
 
   @Test
   @DisplayName("3 - Testa o método login da pessoa cliente retorna o objeto pessoa cliente corretamente.")
   void pessoaClienteLoginTest() {
-
+    fail("Não implementado");
   }
 
   @Test
