@@ -34,7 +34,12 @@ class BancoTest {
   @Test
   @DisplayName("3 - Testa o método login da pessoa cliente retorna o objeto pessoa cliente corretamente.")
   void pessoaClienteLoginTest() {
-    fail("Não implementado");
+    Banco banco = new Banco();
+    String nome = "teste";
+    String cpf = "123456789121";
+    String senha = "123456";
+    PessoaCliente cliente = banco.adicionarPessoaCliente(nome,cpf,senha);
+    assertEquals(cliente, banco.pessoaClienteLogin(cpf,senha));
   }
 
   @Test
