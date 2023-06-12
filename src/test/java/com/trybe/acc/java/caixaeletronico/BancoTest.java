@@ -1,7 +1,12 @@
 package com.trybe.acc.java.caixaeletronico;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -41,12 +46,27 @@ class BancoTest {
     PessoaCliente cliente = banco.adicionarPessoaCliente(nome,cpf,senha);
     assertEquals(cliente, banco.pessoaClienteLogin(cpf,senha));
   }
-
+/*
+Testar saídas console
+https://cursos.alura.com.br/forum/topico-testando-saida-no-console-71576
+ */
   @Test
   @DisplayName("4 - Testa se o método transferir fundos está transferindo corretamente.")
   void depositarTestTransferirFundosTestmostrarExtratoTest() {
-    fail("Não implementado");
-
+    Banco banco = new Banco();
+    String nomeDeposito = "vaiDepositar";
+    String cpf = "123456789121";
+    String senha = "123456";
+    PessoaCliente cliente = banco.adicionarPessoaCliente(nomeDeposito,cpf,senha);
+    Conta contaCorrente = new Conta("Corrente", cliente, banco);
+    Conta contaPoupanca = new Conta("Poupança", cliente, banco);
+    banco.depositar(cliente, 1, 5000);
+    ByteArrayOutputStream output = new ByteArrayOutputStream();
+    PrintStream ps = new PrintStream(output);
+    System.setOut(ps);
+    Assertions.assertTrue(output.toString().contains("5000"));
+    banco.mostrarExtrato(cliente, 1);
+    Assertions.assertTrue(output.toString().contains("5000"));
   }
 
   @Test
