@@ -1,15 +1,20 @@
 package com.trybe.acc.java.caixaeletronico;
 
-import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 
+/**
+ Classe Transacao.
+ */
 public class Transacao {
   private double quantia;
   private String instante;
   private String descricao;
   private Conta conta;
+
+  /**
+   Metodo Construtor.
+   */
 
   public Transacao(double quantia, String descricao) {
     this.quantia = quantia;
@@ -21,11 +26,18 @@ public class Transacao {
     return quantia;
   }
 
+  /**
+   Metodo Construtor.
+   */
   public String retornarResumoTransacao() {
     StringBuilder builder = new StringBuilder();
-    return builder.append(instante).append(" R$").append(quantia).append(" ").append(descricao).toString();
+    return builder.append(instante).append(" R$")
+        .append(quantia).append(" ").append(descricao).toString();
   }
 
+  /**
+   Metodo Retornar Instante da Transação.
+   */
   public String retornarInstante() {
     LocalDateTime instante = LocalDateTime.now();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");

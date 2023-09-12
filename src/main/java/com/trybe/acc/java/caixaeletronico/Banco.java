@@ -5,22 +5,20 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-/*
-  Classe Banco
+/**
+  Classe Banco.
 */
-
 public class Banco {
 
-  /*
-    Atributos da Classe Banco
+  /**
+    Atributos da Classe Banco.
  */
   private List<PessoaCliente> pessoasClientes = new ArrayList<PessoaCliente>();
   private List<Conta> contas = new ArrayList<Conta>();
 
-  /*
-      Metodo para Gerar Numero Aleatorio para uma Nova Conta
+  /**
+      Metodo para Gerar Numero Aleatorio para uma Nova Conta.
   */
-
   public String gerarNumeroNovaConta() {
     Random random = new Random();
     long conta = random.nextLong();
@@ -29,8 +27,8 @@ public class Banco {
     }
     return Long.toString(conta).substring(9);
   }
-  /*
-      Metodo para Adicionar Pessoa Cliente
+  /**
+      Metodo para Adicionar Pessoa Cliente.
   */
 
   public PessoaCliente adicionarPessoaCliente(String nome, String cpf, String senha) {
@@ -44,16 +42,16 @@ public class Banco {
     return null;
   }
 
-  /*
-      Metodo para Adicionar Conta
+  /**
+      Metodo para Adicionar Conta.
   */
 
   public void adicionarConta(Conta novaConta) {
     contas.add(novaConta);
   }
 
-  /*
-      Metodo para login de Pessoa Cliente
+  /**
+      Metodo para login de Pessoa Cliente.
   */
 
   public PessoaCliente pessoaClienteLogin(String cpf, String senha) {
@@ -62,8 +60,8 @@ public class Banco {
     return login.orElse(null);
   }
 
-  /*
-      Metodo para transaferir fundos
+  /**
+      Metodo para transaferir fundos.
   */
 
   public void transferirFundos(
@@ -72,32 +70,32 @@ public class Banco {
     pessoaCliente.adicionarTransacaoContaEspecifica(paraConta, quantia, "Transferencia recebida");
   }
 
-  /*
-      Metodo para Sacar
+  /**
+      Metodo para Sacar.
   */
 
   public void sacar(PessoaCliente pessoaCliente, int daConta, double quantia) {
     pessoaCliente.adicionarTransacaoContaEspecifica(daConta, quantia * -1, "Saque realizado");
   }
 
-  /*
-      Metodo para Depositar
+  /**
+      Metodo para Depositar.
   */
 
   public void depositar(PessoaCliente pessoaCliente, int paraConta, double quantia) {
     pessoaCliente.adicionarTransacaoContaEspecifica(paraConta, quantia, "Deposito realizado");
   }
 
-  /*
-      Metodo para Mostrar Extrato
+  /**
+      Metodo para Mostrar Extrato.
   */
 
   public void mostrarExtrato(PessoaCliente pessoaCliente, int conta) {
     pessoaCliente.retornarExtratoContaEspecifica(conta);
   }
 
-  /*
-      Metodo para Mostrar Pessoas Clientes
+  /**
+      Metodo para Mostrar Pessoas Clientes.
   */
 
   public List<PessoaCliente> getPessoasClientes() {

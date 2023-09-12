@@ -3,8 +3,8 @@ package com.trybe.acc.java.caixaeletronico;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
-      Classe Conta
+/**
+      Classe Conta.
 */
 
 public class Conta {
@@ -14,14 +14,17 @@ public class Conta {
   private PessoaCliente pessoaCliente;
   private List<Transacao> transacoes = new ArrayList<>();
 
+  /**
+    Metodo Construtor.
+   */
   public Conta(String tipoConta, PessoaCliente pessoaCliente, Banco banco) {
     this.tipoConta = tipoConta;
     this.pessoaCliente = pessoaCliente;
     this.idConta = banco.gerarNumeroNovaConta();
   }
 
-  /*
-      Metodo para Adicionar Transacao
+  /**
+      Metodo para Adicionar Transacao.
   */
 
   public void adicionarTransacao(double quantia, String descricao) {
@@ -29,16 +32,16 @@ public class Conta {
     transacoes.add(transacao);
   }
 
-  /*
-      Metodo para Retornar Saldo
+  /**
+      Metodo para Retornar Saldo.
   */
 
   public double retornarSaldo() {
     return transacoes.stream().mapToDouble(Transacao::getQuantia).sum();
   }
 
-  /*
-      Metodo para Retornar Resumo Conta
+  /**
+      Metodo para Retornar Resumo Conta.
   */
 
   public void retornarResumoConta() {
@@ -48,8 +51,8 @@ public class Conta {
     System.out.println(builder);
   }
 
-  /*
-      Metodo para Retornar extrato
+  /**
+      Metodo para Retornar extrato.
   */
 
   public void retornarExtrato() {

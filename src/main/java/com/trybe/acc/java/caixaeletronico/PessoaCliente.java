@@ -4,18 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ Classe Pessoa Cliente.
+ */
+
 public class PessoaCliente {
   private String nome;
   private String cpf;
   private String senha;
   private List<Conta> contas = new ArrayList<>();
 
+  /**
+   Metodo Construtor.
+   */
+
   public PessoaCliente(String nome, String cpf, String senha) {
     this.nome = nome;
     this.cpf = cpf;
     this.senha = senha;
     StringBuilder builder = new StringBuilder();
-    builder.append("Nova pessoa cliente ").append(nome).append(" com cpf ").append(cpf).append(" criada!");
+    builder.append("Nova pessoa cliente ").append(nome)
+        .append(" com cpf ").append(cpf).append(" criada!");
     System.out.println(builder.toString());
   }
 
@@ -44,7 +53,7 @@ public class PessoaCliente {
 
   public void adicionarTransacaoContaEspecifica(int indice, double quantia, String descricao) {
     Conta conta = contas.get(indice);
-    conta.adicionarTransacao(quantia,descricao);
+    conta.adicionarTransacao(quantia, descricao);
   }
 
   public boolean validarSenha(String senha) {
